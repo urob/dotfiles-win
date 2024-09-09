@@ -43,13 +43,13 @@ properties:
         id: SamHocevar.WinCompose
         source: winget
 
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      directives:
-        description: Install CrashPlan
-        allowPrerelease: true
-      settings:
-        id: CrashPlan.CrashPlanSMB
-        source: winget
+    # - resource: Microsoft.WinGet.DSC/WinGetPackage
+    #   directives:
+    #     description: Install CrashPlan
+    #     allowPrerelease: true
+    #   settings:
+    #     id: CrashPlan.CrashPlanSMB
+    #     source: winget
 
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
