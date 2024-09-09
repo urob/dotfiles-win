@@ -1,0 +1,140 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+properties:
+  configurationVersion: 0.2.0
+  resources:
+    # TODO: Specify install dir for dropbox
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Dropbox
+        allowPrerelease: true
+      settings:
+        id: Dropbox.Dropbox
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Windows Terminal
+        allowPrerelease: true
+      settings:
+        id: Microsoft.WindowsTerminal
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Firefox
+        allowPrerelease: true
+      settings:
+        id: Mozilla.Firefox
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install SumatraPDF
+        allowPrerelease: true
+      settings:
+        id: SumatraPDF.SumatraPDF
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install WinCompose
+        allowPrerelease: true
+      settings:
+        id: SamHocevar.WinCompose
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install CrashPlan
+        allowPrerelease: true
+      settings:
+        id: CrashPlan.CrashPlanSMB
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install 7zip
+        allowPrerelease: true
+      settings:
+        id: 7zip.7zip
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Logitech.OptionsPlus
+        allowPrerelease: true
+      settings:
+        id: Logitech.OptionsPlus
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Obsidian
+        allowPrerelease: true
+      settings:
+        id: Obsidian.Obsidian
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Zoom
+        allowPrerelease: true
+      settings:
+        id: Zoom.Zoom.EXE
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: powertoys
+      directives:
+        description: Install PowerToys
+        allowPrerelease: true
+      settings:
+        id: Microsoft.PowerToys
+        source: winget
+
+    ############################
+    # Python setup
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Pycharm
+        allowPrerelease: true
+      settings:
+        id: JetBrains.Pycharm.Professional
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Pixi
+        allowPrerelease: true
+      settings:
+        id: prefix-dev.pixi
+        source: winget
+
+    ############################
+    # Latex, Lyx, Zotero
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: miktex
+      directives:
+        description: Install MiKTeX
+        allowPrerelease: true
+      settings:
+        id: MiKTex.MiKTeX
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      dependsOn:
+        - miktex
+      directives:
+        description: Install LyX
+        allowPrerelease: true
+      settings:
+        id: LyX.LyX
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Zotero
+        allowPrerelease: true
+      settings:
+        id: DigitalScholar.Zotero
+        source: winget

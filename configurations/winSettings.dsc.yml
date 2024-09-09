@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+properties:
+  configurationVersion: 0.2.0
+  resources:
+
+    # Be cautious, applying the dsc will restart explorer
+    - resource: Microsoft.Windows.Developer/WindowsExplorer
+      directives:
+        description: File Explorer settings
+        allowPrerelease: true
+      settings:
+        FileExtensions: Show
+        HiddenFiles: Show
+        RestartExplorer: True
+
+    - resource: Microsoft.Windows.Developer/Taskbar
+      directives:
+        description: Taskbar settings
+        allowPrerelease: true
+      settings:
+        HideLabelsMode: Always # [WhenFull, Never]
+        SearchboxMode: Hide
+        TaskViewButton: Hide
+        WidgetsButton: Hide
+        RestartExplorer: True
+
+    - resource: Microsoft.Windows.Developer/EnableDarkMode
+      directives:
+        description: Enable dark mode
+        allowPrerelease: true
+      settings:
+        Ensure: Present
+        RestartExplorer: True

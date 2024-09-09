@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+properties:
+  configurationVersion: 0.2.0
+  resources:
+    # TODO: replace by newer dsccommunity/xPSDesiredStateConfiguration?
+    - resource: PSDscResources/WindowsOptionalFeature
+      id: Wsl.Install
+      directives:
+        description: Enable WSL
+        settings:
+          name: Microsoft-Windows-Subsystem-Linux
+          ensure: Present
+
+    # TODO: only install Debian if it's not already installed
+    - resource: PSDscResources/Script
+      dependsOn:
+        - Wsl.Install
+      directives:
+        description: Install Debian for WSL
+      settings:
+        SetScript: |
+          # $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
+          wsl --install -d Debian
+        GetScript: return $false
+        TestScript: return $false # TODO: check if Debian is installed from output of `wsl --list --all`
