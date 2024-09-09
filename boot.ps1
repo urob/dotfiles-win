@@ -8,7 +8,7 @@ $mainFunction =
 
     $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 
-    $dscUri = "https://raw.githubusercontent.com/urob/win-setup/main/configurations/"
+    $dscUri = "https://raw.githubusercontent.com/urob/dotfiles-win/main/configurations/"
     $dscGenSoftwareUri = $dscUri + "applications.dsc.yml";
     $dscWinSettingsUri = $dscUri + "winSettings.dsc.yml";
     $dscWslUri = $dscUri + "wsl.dsc.yml";
