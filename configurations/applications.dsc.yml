@@ -13,6 +13,14 @@ properties:
 
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
+        description: Install Powershell 7
+        allowPrerelease: true
+      settings:
+        id: Microsoft.PowerShell
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
         description: Install Windows Terminal
         allowPrerelease: true
       settings:
