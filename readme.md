@@ -12,3 +12,12 @@ If you get an error message like `File boot.ps1 cannot be loaded because running
 ```powershell
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
+
+## Todo
+
+```powershell
+# this doesn't work b/c windows terminal dynamically adds WT_SESSION and WT_PROFILE to WSLENV
+# setx WSLENV "${env:WSLENV}:USERPROFILE/up"
+# this isn't great either, b/c it overwrites the existing WSLENV. Better would be to append ignoring WT_VARIABLES
+setx WSLENV "USERPROFILE/up"
+```
